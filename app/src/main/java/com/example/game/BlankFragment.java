@@ -24,7 +24,8 @@ import java.util.Random;
  */
 public class BlankFragment extends Fragment {
 
-     TextView textView;
+     TextView textView,textView2;
+     static int points = 0 ;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -41,15 +42,25 @@ public class BlankFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        textView2 = view.findViewById(R.id.points);
         textView = view.findViewById(R.id.fragmentText);
         Random random = new Random();
         int randomIndex = random.nextInt((100) + 1);
+        int raznica;
+        raznica = randomIndex - mParam1;
         Log.d("ololo", "otvet: "+ randomIndex);
         if (randomIndex == mParam1){
             textView.setText("Угадал");
-        }
-        else {
+            points = points + 100;
+            textView2.setText(String.valueOf(points));
+        }else if (raznica <= 10 && raznica >= -10){
+            textView.setText("Почти угадал");
+            points = points + 50;
+            textView2.setText(String.valueOf(points));
+        }else {
             textView.setText("Не угадал");
+            points = points - 10;
+            textView2.setText(String.valueOf(points));
         }
 
     }
