@@ -45,6 +45,10 @@ private SeekBar seekBar;
         super.onResume();
     }
 
+    @Override
+    protected void onStop() {
+        super.onStop();
+    }
 
     private  void  showResultsFragment(){
         FragmentManager manager = getSupportFragmentManager();

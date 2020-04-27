@@ -50,15 +50,15 @@ public class BlankFragment extends Fragment {
         raznica = randomIndex - mParam1;
         Log.d("ololo", "otvet: "+ randomIndex);
         if (randomIndex == mParam1){
-            textView.setText("Угадал");
+            textView.setText("Угадал \n +100 очков");
             points = points + 100;
             textView2.setText(String.valueOf(points));
         }else if (raznica <= 10 && raznica >= -10){
-            textView.setText("Почти угадал");
+            textView.setText("Почти угадал \n +50 очков");
             points = points + 50;
             textView2.setText(String.valueOf(points));
         }else {
-            textView.setText("Не угадал");
+            textView.setText("Не угадал \n -10 очков");
             points = points - 10;
             textView2.setText(String.valueOf(points));
         }
